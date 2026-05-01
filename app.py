@@ -15,7 +15,7 @@ st.set_page_config(
 # -------------------------------
 # HEADER & BUSINESS CONTEXT
 # -------------------------------
-st.title("US Second-Hand Car Listings — Market Analysis")
+st.title("🚗 US Second-Hand Car Listings — Market Analysis")
 st.markdown("""
 This dashboard explores a dataset of **used car listings in the United States**.  
 Use the filters on the left to explore how **price, mileage, condition and vehicle type**  
@@ -31,7 +31,7 @@ car_data = pd.read_csv('vehicles_us.csv')
 # -------------------------------
 # SIDEBAR FILTERS
 # -------------------------------
-st.sidebar.header("Filters")
+st.sidebar.header("🔍 Filters")
 
 selected_condition = st.sidebar.selectbox(
     "Vehicle condition",
@@ -58,7 +58,7 @@ selected_odometer = st.sidebar.slider(
 )
 
 st.sidebar.divider()
-st.sidebar.header("Charts")
+st.sidebar.header("📊 Charts")
 build_histogram = st.sidebar.checkbox("Odometer distribution")
 build_scatter    = st.sidebar.checkbox("Price vs odometer")
 build_bar        = st.sidebar.checkbox("Listings by vehicle type")
@@ -85,7 +85,7 @@ filtered = filtered[filtered["odometer"] <= selected_odometer]
 # -------------------------------
 # KPI METRICS
 # -------------------------------
-st.subheader("Key Metrics")
+st.subheader("📈 Key Metrics")
 col1, col2, col3, col4 = st.columns(4)
 
 col1.metric("Total listings", f"{len(filtered):,}")
@@ -99,7 +99,7 @@ st.divider()
 # -------------------------------
 # DATA TABLE
 # -------------------------------
-with st.expander("View filtered data"):
+with st.expander("📋 View filtered data"):
     st.dataframe(filtered, use_container_width=True)
 
 # -------------------------------
@@ -172,9 +172,9 @@ if build_box:
     st.plotly_chart(fig, use_container_width=True)
     st.caption("'New' and 'like new' vehicles command significantly higher prices with less variability.")
 
-# ------------------------------
+# -------------------------------
 # FOOTER
-# ------------------------------
+# -------------------------------
 st.divider()
 st.markdown("""
 <small>Dataset: US vehicle listings | 
